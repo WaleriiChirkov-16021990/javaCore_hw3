@@ -1,8 +1,13 @@
 package org.example.models.abstracts_models;
 
+import org.example.models.Company;
+
 import java.util.Objects;
 
 public abstract class AbstractEmployee {
+	
+	
+	private static int id = 0;
 	private String name;
 	private String midName;
 	private String surName;
@@ -22,6 +27,7 @@ public abstract class AbstractEmployee {
 		this.age = age;
 		this.salary = salary;
 		this.experience = experience;
+		AbstractEmployee.id +=1;
 	}
 	
 	
@@ -50,6 +56,15 @@ public abstract class AbstractEmployee {
 	public int hashCode() {
 		return Objects.hash(getName(), getMidName(), getSurName(), getPosition(), getPhone(), getAge(), getSalary(), getExperience());
 	}
+	
+	
+	public static int getId() {
+		return id;
+	}
+	
+//	public static void setId(int id) {
+//		AbstractEmployee.id = id;
+//	}
 	
 	public int getExperience() {
 		return experience;
